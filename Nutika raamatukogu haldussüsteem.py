@@ -7,8 +7,6 @@ KASUTAJAD_FAIL = "kasutajad.csv"
 LAENUTUSED_FAIL = "laenutused.csv"
 
 
-# ------------------ KLASSID ------------------
-
 class Raamat:
     def __init__(self, raamatu_id, pealkiri, autor, saadaval="jah"):
         self.raamatu_id = raamatu_id
@@ -30,9 +28,6 @@ class Laenutus:
         self.laenutuse_kuup = laenutuse_kuup
         self.tagastus_kuup = tagastus_kuup
 
-
-# ------------------ FAILIDE LOOMINE ------------------
-
 def loo_failid():
     if not os.path.exists(RAAMATUD_FAIL):
         with open(RAAMATUD_FAIL, "w", newline="") as f:
@@ -49,8 +44,6 @@ def loo_failid():
             writer = csv.writer(f)
             writer.writerow(["kasutaja_id", "raamatu_id", "laenutuse_kuup", "tagastus_kuup"])
 
-
-# ------------------ RAAMATUD ------------------
 
 def lisa_raamat():
     raamatu_id = input("Sisesta raamatu ID: ")
@@ -73,8 +66,6 @@ def kuva_raamatud():
             print(rida)
 
 
-# ------------------ KASUTAJAD ------------------
-
 def lisa_kasutaja():
     kasutaja_id = input("Sisesta kasutaja ID: ")
     nimi = input("Sisesta nimi: ")
@@ -85,8 +76,6 @@ def lisa_kasutaja():
 
     print("Kasutaja lisatud!")
 
-
-# ------------------ LAENUTAMINE ------------------
 
 def laenuta_raamat():
     kasutaja_id = input("Sisesta kasutaja ID: ")
@@ -154,7 +143,6 @@ def tagasta_raamat():
     print("Raamat tagastatud!")
 
 
-# ------------------ MENÜÜ ------------------
 
 def menuu():
     while True:
@@ -184,7 +172,6 @@ def menuu():
             print("Vale valik!")
 
 
-# ------------------ KÄIVITUS ------------------
 
 if __name__ == "__main__":
     loo_failid()
